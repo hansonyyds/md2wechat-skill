@@ -18,10 +18,10 @@ type Config struct {
 	WechatSecret string `json:"wechat_secret" yaml:"wechat_secret" env:"WECHAT_SECRET"`
 
 	// md2wechat.cn API 配置
-	MD2WechatAPIKey     string `json:"md2wechat_api_key" yaml:"md2wechat_api_key" env:"MD2WECHAT_API_KEY"`
-	MD2WechatBaseURL    string `json:"md2wechat_base_url" yaml:"md2wechat_base_url" env:"MD2WECHAT_BASE_URL"`
-	DefaultConvertMode  string `json:"default_convert_mode" yaml:"default_convert_mode" env:"CONVERT_MODE"`
-	DefaultTheme        string `json:"default_theme" yaml:"default_theme" env:"DEFAULT_THEME"`
+	MD2WechatAPIKey       string `json:"md2wechat_api_key" yaml:"md2wechat_api_key" env:"MD2WECHAT_API_KEY"`
+	MD2WechatBaseURL      string `json:"md2wechat_base_url" yaml:"md2wechat_base_url" env:"MD2WECHAT_BASE_URL"`
+	DefaultConvertMode    string `json:"default_convert_mode" yaml:"default_convert_mode" env:"CONVERT_MODE"`
+	DefaultTheme          string `json:"default_theme" yaml:"default_theme" env:"DEFAULT_THEME"`
 	DefaultBackgroundType string `json:"default_background_type" yaml:"default_background_type" env:"DEFAULT_BACKGROUND_TYPE"` // default/grid/none
 
 	// 图片生成 API 配置
@@ -39,6 +39,9 @@ type Config struct {
 	// 超时配置
 	HTTPTimeout int `json:"http_timeout" yaml:"http_timeout" env:"HTTP_TIMEOUT"`
 
+	// 微信 API 代理配置
+	WechatProxy string `json:"wechat_proxy" yaml:"wechat_proxy" env:"WECHAT_PROXY"`
+
 	// 配置文件路径（用于追踪）
 	configFile string
 }
@@ -51,17 +54,18 @@ type configFile struct {
 	} `json:"wechat" yaml:"wechat"`
 
 	API struct {
-		MD2WechatKey       string `json:"md2wechat_key" yaml:"md2wechat_key"`
-		MD2WechatBaseURL  string `json:"md2wechat_base_url" yaml:"md2wechat_base_url"`
-		ImageKey          string `json:"image_key" yaml:"image_key"`
-		ImageBaseURL      string `json:"image_base_url" yaml:"image_base_url"`
-		ImageProvider     string `json:"image_provider" yaml:"image_provider"`
-		ImageModel        string `json:"image_model" yaml:"image_model"`
-		ImageSize         string `json:"image_size" yaml:"image_size"`
-		ConvertMode       string `json:"convert_mode" yaml:"convert_mode"`
-		DefaultTheme      string `json:"default_theme" yaml:"default_theme"`
-		BackgroundType    string `json:"background_type" yaml:"background_type"`
-		HTTPTimeout       int    `json:"http_timeout" yaml:"http_timeout"`
+		MD2WechatKey     string `json:"md2wechat_key" yaml:"md2wechat_key"`
+		MD2WechatBaseURL string `json:"md2wechat_base_url" yaml:"md2wechat_base_url"`
+		ImageKey         string `json:"image_key" yaml:"image_key"`
+		ImageBaseURL     string `json:"image_base_url" yaml:"image_base_url"`
+		ImageProvider    string `json:"image_provider" yaml:"image_provider"`
+		ImageModel       string `json:"image_model" yaml:"image_model"`
+		ImageSize        string `json:"image_size" yaml:"image_size"`
+		ConvertMode      string `json:"convert_mode" yaml:"convert_mode"`
+		DefaultTheme     string `json:"default_theme" yaml:"default_theme"`
+		BackgroundType   string `json:"background_type" yaml:"background_type"`
+		HTTPTimeout      int    `json:"http_timeout" yaml:"http_timeout"`
+		WechatProxy      string `json:"wechat_proxy" yaml:"wechat_proxy"`
 	} `json:"api" yaml:"api"`
 
 	Image struct {
@@ -80,18 +84,18 @@ func Load() (*Config, error) {
 // LoadWithDefaults 使用指定配置文件路径加载配置
 func LoadWithDefaults(configPath string) (*Config, error) {
 	cfg := &Config{
-		DefaultConvertMode:  "api",
-		DefaultTheme:        "default",
+		DefaultConvertMode:    "api",
+		DefaultTheme:          "default",
 		DefaultBackgroundType: "default",
-		MD2WechatBaseURL:   "https://www.md2wechat.cn",
-		CompressImages:     true,
-		MaxImageWidth:      1920,
-		MaxImageSize:       5 * 1024 * 1024, // 5MB
-		HTTPTimeout:        30,
-		ImageProvider:      "openai",
-		ImageAPIBase:       "https://api.openai.com/v1",
-		ImageModel:         "dall-e-3",
-		ImageSize:          "1024x1024",
+		MD2WechatBaseURL:      "https://www.md2wechat.cn",
+		CompressImages:        true,
+		MaxImageWidth:         1920,
+		MaxImageSize:          5 * 1024 * 1024, // 5MB
+		HTTPTimeout:           30,
+		ImageProvider:         "openai",
+		ImageAPIBase:          "https://api.openai.com/v1",
+		ImageModel:            "dall-e-3",
+		ImageSize:             "1024x1024",
 	}
 
 	// 1. 尝试从配置文件加载
@@ -228,6 +232,9 @@ func loadFromYAML(cfg *Config, data []byte) error {
 	if cf.API.HTTPTimeout > 0 {
 		cfg.HTTPTimeout = cf.API.HTTPTimeout
 	}
+	if cf.API.WechatProxy != "" {
+		cfg.WechatProxy = cf.API.WechatProxy
+	}
 	cfg.CompressImages = cf.Image.Compress
 	if cf.Image.MaxWidth > 0 {
 		cfg.MaxImageWidth = cf.Image.MaxWidth
@@ -285,6 +292,9 @@ func loadFromJSON(cfg *Config, data []byte) error {
 	}
 	if cf.API.HTTPTimeout > 0 {
 		cfg.HTTPTimeout = cf.API.HTTPTimeout
+	}
+	if cf.API.WechatProxy != "" {
+		cfg.WechatProxy = cf.API.WechatProxy
 	}
 	cfg.CompressImages = cf.Image.Compress
 	if cf.Image.MaxWidth > 0 {
@@ -346,6 +356,9 @@ func loadFromEnv(cfg *Config) {
 	}
 	if v := os.Getenv("HTTP_TIMEOUT"); v != "" {
 		cfg.HTTPTimeout = getEnvInt("HTTP_TIMEOUT", cfg.HTTPTimeout)
+	}
+	if v := os.Getenv("WECHAT_PROXY"); v != "" {
+		cfg.WechatProxy = v
 	}
 }
 
@@ -425,23 +438,24 @@ func (c *Config) GetConfigFile() string {
 // ToMap 转换为 map 用于显示
 func (c *Config) ToMap(maskSecret bool) map[string]any {
 	result := map[string]any{
-		"wechat_appid":         c.WechatAppID,
-		"wechat_secret":        maskIf(c.WechatSecret, maskSecret),
-		"default_convert_mode": c.DefaultConvertMode,
-		"default_theme":        c.DefaultTheme,
+		"wechat_appid":            c.WechatAppID,
+		"wechat_secret":           maskIf(c.WechatSecret, maskSecret),
+		"default_convert_mode":    c.DefaultConvertMode,
+		"default_theme":           c.DefaultTheme,
 		"default_background_type": c.DefaultBackgroundType,
-		"md2wechat_api_key":    maskIf(c.MD2WechatAPIKey, maskSecret),
-		"md2wechat_base_url":  c.MD2WechatBaseURL,
-		"image_provider":       c.ImageProvider,
-		"image_api_key":        maskIf(c.ImageAPIKey, maskSecret),
-		"image_api_base":       c.ImageAPIBase,
-		"image_model":          c.ImageModel,
-		"image_size":           c.ImageSize,
-		"compress_images":      c.CompressImages,
-		"max_image_width":      c.MaxImageWidth,
-		"max_image_size_mb":    c.MaxImageSize / 1024 / 1024,
-		"http_timeout":         c.HTTPTimeout,
-		"config_file":          c.configFile,
+		"md2wechat_api_key":       maskIf(c.MD2WechatAPIKey, maskSecret),
+		"md2wechat_base_url":      c.MD2WechatBaseURL,
+		"image_provider":          c.ImageProvider,
+		"image_api_key":           maskIf(c.ImageAPIKey, maskSecret),
+		"image_api_base":          c.ImageAPIBase,
+		"image_model":             c.ImageModel,
+		"image_size":              c.ImageSize,
+		"compress_images":         c.CompressImages,
+		"max_image_width":         c.MaxImageWidth,
+		"max_image_size_mb":       c.MaxImageSize / 1024 / 1024,
+		"http_timeout":            c.HTTPTimeout,
+		"wechat_proxy":            c.WechatProxy,
+		"config_file":             c.configFile,
 	}
 	return result
 }
@@ -464,6 +478,7 @@ func SaveConfig(path string, cfg *Config) error {
 	cf.API.DefaultTheme = cfg.DefaultTheme
 	cf.API.BackgroundType = cfg.DefaultBackgroundType
 	cf.API.HTTPTimeout = cfg.HTTPTimeout
+	cf.API.WechatProxy = cfg.WechatProxy
 	cf.Image.Compress = cfg.CompressImages
 	cf.Image.MaxWidth = cfg.MaxImageWidth
 	cf.Image.MaxSize = int(cfg.MaxImageSize / 1024 / 1024)

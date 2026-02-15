@@ -117,7 +117,8 @@ chmod +x ~/.openclaw/skills/md2wechat/scripts/*.sh
         "enabled": true,
         "env": {
           "WECHAT_APPID": "你的AppID",
-          "WECHAT_SECRET": "你的Secret"
+          "WECHAT_SECRET": "你的Secret",
+          "WECHAT_PROXY": "http://proxy.example.com:8080"
         }
       }
     }
@@ -131,6 +132,7 @@ chmod +x ~/.openclaw/skills/md2wechat/scripts/*.sh
 |---------|------|------|---------|
 | `WECHAT_APPID` | 草稿上传时 | 微信公众号 AppID | [微信开发者平台](https://developers.weixin.qq.com/platform) → 开发接口管理 |
 | `WECHAT_SECRET` | 草稿上传时 | 微信公众号 Secret | 同上，点击"重置"获取 |
+| `WECHAT_PROXY` | 可选 | 微信 API 代理地址 | 你的代理服务器地址 |
 | `IMAGE_API_KEY` | AI 图片时 | 图片生成 API Key | 见 [图片服务配置](IMAGE_PROVISIONERS.md) |
 
 ### 可选：图片生成配置

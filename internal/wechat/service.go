@@ -32,11 +32,41 @@ type Service struct {
 
 // NewService 创建微信服务
 func NewService(cfg *config.Config, log *zap.Logger) *Service {
-	return &Service{
+	wc := wechat.NewWechat()
+
+	// 设置自定义 HTTP 客户端（支持代理）
+	svc := &Service{
 		cfg: cfg,
 		log: log,
-		wc:  wechat.NewWechat(),
+		wc:  wc,
 	}
+
+	wc.SetHTTPClient(svc.createHTTPClient())
+
+	return svc
+}
+
+// createHTTPClient 创建 HTTP 客户端，根据配置决定是否使用代理
+func (s *Service) createHTTPClient() *http.Client {
+	client := &http.Client{
+		Timeout: 60 * time.Second,
+	}
+
+	// 如果配置了代理，设置 Proxy
+	if s.cfg.WechatProxy != "" {
+		if proxyURL, err := neturl.Parse(s.cfg.WechatProxy); err == nil {
+			client.Transport = &http.Transport{
+				Proxy: http.ProxyURL(proxyURL),
+			}
+			s.log.Info("using wechat proxy", zap.String("proxy", s.cfg.WechatProxy))
+		} else {
+			s.log.Warn("invalid wechat proxy url, using direct connection",
+				zap.String("proxy", s.cfg.WechatProxy),
+				zap.Error(err))
+		}
+	}
+
+	return client
 }
 
 // getOfficialAccount 获取公众号实例
@@ -177,6 +207,10 @@ func (s *Service) UploadMaterialWithRetry(filePath string, maxRetries int) (*Upl
 
 // DownloadFile 下载文件到临时目录，或返回本地文件路径
 // 如果传入的是本地文件路径（不以 http:// 或 https:// 开头），则直接返回该路径
+//
+// 注意：此函数不使用代理配置（WechatProxy），因为它是用于下载用户 Markdown 文档中的
+// 远程图片，而非调用微信 API。用户图片可能来自任意互联网地址，直接访问通常更可靠。
+// 如需代理支持，请使用系统环境变量 HTTP_PROXY 或 HTTPS_PROXY。
 func DownloadFile(urlOrPath string) (string, error) {
 	// 检查是否是本地文件路径（不是 HTTP URL）
 	if !strings.HasPrefix(urlOrPath, "http://") && !strings.HasPrefix(urlOrPath, "https://") {
@@ -311,7 +345,8 @@ func (s *Service) CreateNewspicDraft(articles []NewspicArticle) (*CreateDraftRes
 	// 调用微信 API
 	apiURL := fmt.Sprintf("https://api.weixin.qq.com/cgi-bin/draft/add?access_token=%s", accessToken)
 
-	httpResp, err := http.Post(apiURL, "application/json", bytes.NewReader(reqBody))
+	client := s.createHTTPClient()
+	httpResp, err := client.Post(apiURL, "application/json", bytes.NewReader(reqBody))
 	if err != nil {
 		return nil, fmt.Errorf("call wechat api: %w", err)
 	}
