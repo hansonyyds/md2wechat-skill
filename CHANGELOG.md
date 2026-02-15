@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **HTTP Proxy**: 支持微信 API 代理配置
+  - 环境变量: `WECHAT_PROXY`
+  - 配置文件: `api.wechat_proxy`
+  - 支持 HTTP/HTTPS 代理和认证
+
+### Technical Details
+- **Modified Files**:
+  - `internal/config/config.go` - 新增 WechatProxy 字段及加载逻辑
+  - `internal/wechat/service.go` - 代理支持的 HTTP 客户端创建
+  - `docs/CONFIG.md`, `docs/FAQ.md`, `docs/OPENCLAW.md` - 文档更新
+
+---
+
 ## [1.10.0] - 2025-02-10
 
 ### Added

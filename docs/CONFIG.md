@@ -106,6 +106,7 @@ api:
   convert_mode: "api"                   # 转换模式：api 或 ai
   default_theme: "default"              # 默认主题
   http_timeout: 30                      # HTTP 超时时间（秒）
+  wechat_proxy: ""                      # 可选：微信 API 代理地址
 
 # 图片处理配置
 image:
@@ -134,6 +135,7 @@ image:
 | `convert_mode` | 否 | 转换模式 | `api` |
 | `default_theme` | 否 | 默认主题 | `default` |
 | `http_timeout` | 否 | 超时时间（秒） | `30` |
+| `wechat_proxy` | 否 | 微信 API 代理地址 | - |
 
 > **内测地址**：如需参与内测体验新功能，可将 `md2wechat_base_url` 设置为 `https://md2wechat.app`
 
@@ -158,6 +160,7 @@ image:
 |----------|-----------|------|
 | `WECHAT_APPID` | `wechat.appid` | 微信 AppID |
 | `WECHAT_SECRET` | `wechat.secret` | 微信 Secret |
+| `WECHAT_PROXY` | `api.wechat_proxy` | 微信 API 代理地址 |
 | `MD2WECHAT_API_KEY` | `api.md2wechat_key` | md2wechat API Key |
 | `MD2WECHAT_BASE_URL` | `api.md2wechat_base_url` | md2wechat API 地址 |
 | `IMAGE_API_KEY` | `api.image_key` | 图片生成 API Key |
