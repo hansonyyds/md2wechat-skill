@@ -11,7 +11,7 @@ set -e
 # =============================================================================
 
 VERSION="1.11.1"
-REPO="geekjourneyx/md2wechat-skill"
+REPO="hansonyyds/md2wechat-skill"
 BINARY_NAME="md2wechat"
 
 # Cache directory (tool-specific, not Claude's cache)

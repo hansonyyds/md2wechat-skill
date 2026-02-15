@@ -1,7 +1,7 @@
 ---
 name: md2wechat
 description: Convert Markdown to WeChat Official Account HTML. Supports API mode (fast) and AI mode (themed). Features writer style assistant, AI trace removal (humanizer), and draft upload.
-metadata: {"openclaw": {"emoji": "📝", "homepage": "https://github.com/geekjourneyx/md2wechat-skill", "requires": {"anyBins": ["curl", "wget"]}, "primaryEnv": "IMAGE_API_KEY"}}
+metadata: {"openclaw": {"emoji": "📝", "homepage": "https://github.com/hansonyyds/md2wechat-skill", "requires": {"anyBins": ["curl", "wget"]}, "primaryEnv": "IMAGE_API_KEY"}}
 ---
 
 # MD to WeChat
@@ -687,7 +687,7 @@ A: The `run.sh` script will auto-download the binary on first run. If you want t
 bash skills/md2wechat/scripts/run.sh --help
 
 # Or download from releases
-# Visit: https://github.com/geekjourneyx/md2wechat-skill/releases
+# Visit: https://github.com/hansonyyds/md2wechat-skill/releases
 ```
 
 **Q: AI mode very slow**
