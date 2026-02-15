@@ -39,6 +39,29 @@ func NewService(cfg *config.Config, log *zap.Logger) *Service {
 	}
 }
 
+// createHTTPClient 创建 HTTP 客户端，根据配置决定是否使用代理
+func (s *Service) createHTTPClient() *http.Client {
+	client := &http.Client{
+		Timeout: 60 * time.Second,
+	}
+
+	// 如果配置了代理，设置 Proxy
+	if s.cfg.WechatProxy != "" {
+		if proxyURL, err := neturl.Parse(s.cfg.WechatProxy); err == nil {
+			client.Transport = &http.Transport{
+				Proxy: http.ProxyURL(proxyURL),
+			}
+			s.log.Info("using wechat proxy", zap.String("proxy", s.cfg.WechatProxy))
+		} else {
+			s.log.Warn("invalid wechat proxy url, using direct connection",
+				zap.String("proxy", s.cfg.WechatProxy),
+				zap.Error(err))
+		}
+	}
+
+	return client
+}
+
 // getOfficialAccount 获取公众号实例
 func (s *Service) getOfficialAccount() *officialaccount.OfficialAccount {
 	memory := wechatcache.NewMemory()
