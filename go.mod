@@ -1,4 +1,4 @@
-module github.com/geekjourneyx/md2wechat-skill
+module github.com/hansonyyds/md2wechat-skill
 
 go 1.24.0
 

@@ -6,10 +6,10 @@
 
 [![Go Version](https://img.shields.io/badge/Go-1.24+-00ADD8?logo=go)](https://golang.org)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![GitHub Release](https://img.shields.io/badge/download-latest-green)](https://github.com/geekjourneyx/md2wechat-skill/releases)
+[![GitHub Release](https://img.shields.io/badge/download-latest-green)](https://github.com/hansonyyds/md2wechat-skill/releases)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-purple)](#-claude-code-集成)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-00b0aa)](#-openclaw-支持)
-[![zread](https://img.shields.io/badge/Ask_Zread-_.svg?style=flat&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff)](https://zread.ai/geekjourneyx/md2wechat-skill)
+[![zread](https://img.shields.io/badge/Ask_Zread-_.svg?style=flat&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff)](https://zread.ai/hansonyyds/md2wechat-skill)
 
 ---
 
@@ -49,8 +49,8 @@
 在 Claude Code 中运行以下命令即可使用：
 
 ```bash
-/plugin marketplace add geekjourneyx/md2wechat-skill
-/plugin install md2wechat@geekjourneyx-md2wechat-skill
+/plugin marketplace add hansonyyds/md2wechat-skill
+/plugin install md2wechat@hansonyyds-md2wechat-skill
 ```
 
 然后直接对话：**"请用秋日暖光主题将 article.md 转换为微信公众号格式"**
@@ -173,15 +173,15 @@ flowchart LR
 
 ### 第一步：下载软件
 
-> 💡 **最新版本**：访问 [Releases 页面](https://github.com/geekjourneyx/md2wechat-skill/releases) 下载
+> 💡 **最新版本**：访问 [Releases 页面](https://github.com/hansonyyds/md2wechat-skill/releases) 下载
 
 | 你的系统 | 下载链接 | 安装位置 |
 |----------|----------|----------|
-| 🪟 **Windows** | [下载 .exe](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-windows-amd64.exe) | 任意文件夹（或 `C:\Windows\System32\`） |
-| 🍎 **Mac Intel 芯片** | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
-| 🍎 **Mac Apple Silicon (M1/M2/M3/M4)** | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64) | `/usr/local/bin/` 或 `~/.local/bin/` |
-| 🐧 **Linux (Intel/AMD)** | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
-| 🐧 **Linux (ARM/树莓派)** | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-arm64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| 🪟 **Windows** | [下载 .exe](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-windows-amd64.exe) | 任意文件夹（或 `C:\Windows\System32\`） |
+| 🍎 **Mac Intel 芯片** | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| 🍎 **Mac Apple Silicon (M1/M2/M3/M4)** | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| 🐧 **Linux (Intel/AMD)** | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| 🐧 **Linux (ARM/树莓派)** | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-arm64) | `/usr/local/bin/` 或 `~/.local/bin/` |
 
 > 🔍 **如何确认 Mac 芯片类型？**
 > - 点击屏幕左上角 **苹果图标** → **关于本机**
@@ -209,7 +209,7 @@ flowchart LR
 **Apple Silicon (M1/M2/M3/M4)：**
 ```bash
 # 下载并移动到系统目录
-curl -Lo md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64
+curl -Lo md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64
 chmod +x md2wechat
 sudo mv md2wechat /usr/local/bin/
 
@@ -220,7 +220,7 @@ md2wechat --help
 **Intel 芯片：**
 ```bash
 # 下载并移动到系统目录
-curl -Lo md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-amd64
+curl -Lo md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-amd64
 chmod +x md2wechat
 sudo mv md2wechat /usr/local/bin/
 
@@ -232,7 +232,7 @@ md2wechat --help
 ```bash
 # Apple Silicon
 mkdir -p ~/.local/bin
-curl -Lo ~/.local/bin/md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64
+curl -Lo ~/.local/bin/md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64
 chmod +x ~/.local/bin/md2wechat
 
 # Intel 芯片（将上面 URL 中的 arm64 改为 amd64）
@@ -255,7 +255,7 @@ md2wechat --help
 **Intel/AMD (x86_64)：**
 ```bash
 # 下载并移动到系统目录
-curl -Lo md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
+curl -Lo md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
 chmod +x md2wechat
 sudo mv md2wechat /usr/local/bin/
 
@@ -266,7 +266,7 @@ md2wechat --help
 **ARM/树莓派 (aarch64)：**
 ```bash
 # 下载并移动到系统目录
-curl -Lo md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-arm64
+curl -Lo md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-arm64
 chmod +x md2wechat
 sudo mv md2wechat /usr/local/bin/
 
@@ -278,7 +278,7 @@ md2wechat --help
 ```bash
 mkdir -p ~/.local/bin
 # Intel/AMD 用 amd64，ARM 用 arm64
-curl -Lo ~/.local/bin/md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
+curl -Lo ~/.local/bin/md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
 chmod +x ~/.local/bin/md2wechat
 
 # 添加到 PATH（如果还没有）
@@ -969,14 +969,14 @@ md2wechat-skill/
 ### 方式一：Go 工具链
 
 ```bash
-go install github.com/geekjourneyx/md2wechat-skill/cmd/md2wechat@latest
+go install github.com/hansonyyds/md2wechat-skill/cmd/md2wechat@latest
 ```
 
 ### 方式二：一键安装脚本
 
 **Mac/Linux：**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install.sh | bash
 ```
 
 > 💡 脚本会自动检测你的系统架构并下载对应版本
@@ -984,13 +984,13 @@ curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/s
 **Windows PowerShell：**
 ```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install.ps1'))
 ```
 
 ### 方式三：从源码编译
 
 ```bash
-git clone https://github.com/geekjourneyx/md2wechat-skill.git
+git clone https://github.com/hansonyyds/md2wechat-skill.git
 cd md2wechat-skill
 make build
 ```
@@ -1009,10 +1009,10 @@ md2wechat 提供了 **Claude Code Skill**，让你在 Claude Code 中直接使�
 
 ```bash
 # 添加插件市场
-/plugin marketplace add geekjourneyx/md2wechat-skill
+/plugin marketplace add hansonyyds/md2wechat-skill
 
 # 安装插件
-/plugin install md2wechat@geekjourneyx-md2wechat-skill
+/plugin install md2wechat@hansonyyds-md2wechat-skill
 ```
 
 安装后，直接在 Claude Code 中对话即可使用：
@@ -1026,7 +1026,7 @@ md2wechat 提供了 **Claude Code Skill**，让你在 Claude Code 中直接使�
 克隆项目后，Skill 自动可用：
 
 ```bash
-git clone https://github.com/geekjourneyx/md2wechat-skill.git
+git clone https://github.com/hansonyyds/md2wechat-skill.git
 cd md2wechat-skill
 # 在 Claude Code 中直接使用
 ```
@@ -1099,13 +1099,13 @@ clawhub install md2wechat
 #### 方式二：一键脚本安装
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install-openclaw.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install-openclaw.sh | bash
 ```
 
 #### 方式三：手动安装
 
 ```bash
-git clone https://github.com/geekjourneyx/md2wechat-skill.git
+git clone https://github.com/hansonyyds/md2wechat-skill.git
 cp -r md2wechat-skill/skills/md2wechat ~/.openclaw/skills/
 ```
 
@@ -1243,7 +1243,7 @@ md2wechat write --style dan-koe --cover-only
 - 也可以使用一键安装脚本，会自动检测系统架构
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install.sh | bash
 ```
 </details>
 
@@ -1490,20 +1490,20 @@ EOF
 
 ### WeChat
 
-<img src="https://raw.githubusercontent.com/geekjourneyx/awesome-developer-go-sail/main/docs/assets/wechat-reward-code.jpg" alt="微信打赏码" width="200" />
+<img src="https://via.placeholder.com/200x200?text=Reward+QR+Code" alt="微信打赏码" width="200" />
 
 ---
 
 ## 🧑‍💻 作者
 
-- 作者：**geekjourneyx**
+- 作者：**hansonyyds**
 - X（Twitter）：https://x.com/seekjourney
 - 公众号：极客杰尼
 
 关注公众号，获取更多 AI 编程、AI 工具与 AI 出海建站的实战分享：
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/geekjourneyx/awesome-developer-go-sail/main/docs/assets/qrcode.jpg" alt="公众号：极客杰尼" width="180" />
+<img src="https://via.placeholder.com/180x180?text=WeChat+QR+Code" alt="公众号：极客杰尼" width="180" />
 </p>
 
 ---
@@ -1512,8 +1512,8 @@ EOF
 
 **让公众号写作更简单** ⭐
 
-[主页](https://github.com/geekjourneyx/md2wechat-skill) • [文档](docs) • [反馈](https://github.com/geekjourneyx/md2wechat-skill/issues)
+[主页](https://github.com/hansonyyds/md2wechat-skill) • [文档](docs) • [反馈](https://github.com/hansonyyds/md2wechat-skill/issues)
 
-Made with ❤️ by [geekjourneyx](https://geekjourney.dev)
+Made with ❤️ by [hansonyyds](https://geekjourney.dev)
 
 </div>

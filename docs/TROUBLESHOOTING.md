@@ -327,7 +327,7 @@ md2wechat config show
 
 1. 查看 [常见问题](FAQ.md)
 2. 查看 [使用教程](USAGE.md)
-3. 提交 Issue：https://github.com/geekjourneyx/md2wechat-skill/issues
+3. 提交 Issue：https://github.com/hansonyyds/md2wechat-skill/issues
 
 提交问题时，请附上：
 - 你的操作系统（Windows 10 / macOS 13 / Linux）

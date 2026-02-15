@@ -6,12 +6,12 @@
 # For ClawHub users: clawhub install md2wechat
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install-openclaw.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install-openclaw.sh | bash
 #
 
 set -e
 
-REPO="geekjourneyx/md2wechat-skill"
+REPO="hansonyyds/md2wechat-skill"
 SKILL_NAME="md2wechat"
 INSTALL_DIR="${HOME}/.openclaw/skills/${SKILL_NAME}"
 GITHUB_ARCHIVE="https://github.com/${REPO}/archive/refs/heads/main.tar.gz"

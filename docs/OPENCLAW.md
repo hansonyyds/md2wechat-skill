@@ -75,7 +75,7 @@ clawhub login
 适合没有安装 clawhub 的用户：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install-openclaw.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install-openclaw.sh | bash
 ```
 
 **脚本功能：**
@@ -89,7 +89,7 @@ curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/s
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/geekjourneyx/md2wechat-skill.git
+git clone https://github.com/hansonyyds/md2wechat-skill.git
 
 # 2. 复制技能目录
 mkdir -p ~/.openclaw/skills
@@ -225,7 +225,7 @@ ls ~/.cache/md2wechat/bin/
 clawhub update md2wechat
 
 # 脚本方式（会覆盖安装）
-curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install-openclaw.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install-openclaw.sh | bash
 ```
 
 ### Q: 配置没生效？
@@ -272,8 +272,8 @@ cat ~/.openclaw/openclaw.json | python3 -m json.tool
 - [OpenClaw 文档](https://docs.openclaw.ai/)
 - [ClawHub 技能市场](https://clawhub.ai/)
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)
-- [md2wechat 主仓库](https://github.com/geekjourneyx/md2wechat-skill)
-- [问题反馈](https://github.com/geekjourneyx/md2wechat-skill/issues)
+- [md2wechat 主仓库](https://github.com/hansonyyds/md2wechat-skill)
+- [问题反馈](https://github.com/hansonyyds/md2wechat-skill/issues)
 
 ---
 

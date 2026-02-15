@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
-	"github.com/geekjourneyx/md2wechat-skill/internal/draft"
-	"github.com/geekjourneyx/md2wechat-skill/internal/image"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/draft"
+	"github.com/hansonyyds/md2wechat-skill/internal/image"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 )

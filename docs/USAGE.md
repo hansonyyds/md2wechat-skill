@@ -21,8 +21,8 @@
 在 Claude Code 中运行：
 
 ```bash
-/plugin marketplace add geekjourneyx/md2wechat-skill
-/plugin install md2wechat@geekjourneyx-md2wechat-skill
+/plugin marketplace add hansonyyds/md2wechat-skill
+/plugin install md2wechat@hansonyyds-md2wechat-skill
 ```
 
 ### 使用方式

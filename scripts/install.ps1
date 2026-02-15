@@ -1,6 +1,6 @@
 # md2wechat Windows 自动安装脚本
 # 使用方法：在 PowerShell 中运行
-# Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install.ps1'))
+# Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install.ps1'))
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "   md2wechat 安装向导" -ForegroundColor Cyan
@@ -25,7 +25,7 @@ New-Item -ItemType Directory -Force -Path $installDir | Out-Null
 
 # 下载
 Write-Host "正在下载..." -ForegroundColor Green
-$downloadUrl = "https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-windows-amd64.exe"
+$downloadUrl = "https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-windows-amd64.exe"
 $outputFile = "$installDir\md2wechat.exe"
 
 try {

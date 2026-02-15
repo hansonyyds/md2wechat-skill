@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
 )
 
 // OpenAIProvider OpenAI 图片生成服务提供者

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
 	"google.golang.org/genai"
 )
 

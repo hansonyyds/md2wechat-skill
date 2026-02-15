@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/converter"
-	"github.com/geekjourneyx/md2wechat-skill/internal/draft"
-	"github.com/geekjourneyx/md2wechat-skill/internal/image"
-	"github.com/geekjourneyx/md2wechat-skill/internal/wechat"
+	"github.com/hansonyyds/md2wechat-skill/internal/converter"
+	"github.com/hansonyyds/md2wechat-skill/internal/draft"
+	"github.com/hansonyyds/md2wechat-skill/internal/image"
+	"github.com/hansonyyds/md2wechat-skill/internal/wechat"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 )

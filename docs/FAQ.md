@@ -52,7 +52,7 @@ export GOPROXY=https://goproxy.cn,direct
 go clean -modcache
 
 # 3. 重新安装
-go install github.com/geekjourneyx/md2wechat-skill/cmd/md2wechat@latest
+go install github.com/hansonyyds/md2wechat-skill/cmd/md2wechat@latest
 ```
 
 ---
@@ -435,7 +435,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install md2wechat
-        run: go install github.com/geekjourneyx/md2wechat-skill/cmd/md2wechat@latest
+        run: go install github.com/hansonyyds/md2wechat-skill/cmd/md2wechat@latest
       - name: Convert and publish
         env:
           WECHAT_APPID: ${{ secrets.WECHAT_APPID }}
@@ -526,7 +526,7 @@ md2wechat convert --help
 
 3. **提交 Issue**
 
-访问 [GitHub Issues](https://github.com/geekjourneyx/md2wechat-skill/issues)
+访问 [GitHub Issues](https://github.com/hansonyyds/md2wechat-skill/issues)
 
 ---
 
@@ -594,4 +594,4 @@ md2wechat upload_image test.jpg
    systeminfo  # Windows
    ```
 
-将以上信息提交到 [GitHub Issues](https://github.com/geekjourneyx/md2wechat-skill/issues)，我们会尽快回复。
+将以上信息提交到 [GitHub Issues](https://github.com/hansonyyds/md2wechat-skill/issues)，我们会尽快回复。

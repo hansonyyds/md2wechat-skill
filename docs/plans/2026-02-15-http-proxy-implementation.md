@@ -556,7 +556,7 @@ import (
 	"time"
 	"url" "net/url"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
 	"github.com/silenceper/wechat/v2"
 	wechatcache "github.com/silenceper/wechat/v2/cache"
 	"github.com/silenceper/wechat/v2/officialaccount"
@@ -801,7 +801,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
 	"go.uber.org/zap"
 )
 

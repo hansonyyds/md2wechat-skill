@@ -40,7 +40,7 @@ go version
 1. **使用 go install 安装**
 
 ```bash
-go install github.com/geekjourneyx/md2wechat-skill/cmd/md2wechat@latest
+go install github.com/hansonyyds/md2wechat-skill/cmd/md2wechat@latest
 ```
 
 2. **确保 GOPATH/bin 在 PATH 中**
@@ -66,7 +66,7 @@ md2wechat --help
 
 ### 下载地址
 
-访问 [Releases](https://github.com/geekjourneyx/md2wechat-skill/releases) 页面下载适合你系统的版本。
+访问 [Releases](https://github.com/hansonyyds/md2wechat-skill/releases) 页面下载适合你系统的版本。
 
 | 系统 | 文件名 |
 |------|--------|
@@ -82,7 +82,7 @@ md2wechat --help
 
 ```bash
 # 1. 下载
-wget https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
+wget https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
 
 # 2. 添加执行权限
 chmod +x md2wechat-linux-amd64
@@ -120,7 +120,7 @@ md2wechat.exe --help
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/geekjourneyx/md2wechat-skill.git
+git clone https://github.com/hansonyyds/md2wechat-skill.git
 cd md2wechat-skill
 
 # 2. 下载依赖
@@ -156,7 +156,7 @@ GOOS=windows GOARCH=amd64 go build -o md2wechat-windows-amd64.exe ./cmd/md2wecha
 ### 拉取镜像
 
 ```bash
-docker pull ghcr.io/geekjourneyx/md2wechat:latest
+docker pull ghcr.io/hansonyyds/md2wechat:latest
 ```
 
 ### 使用方式
@@ -231,7 +231,7 @@ sudo rm /usr/local/bin/md2wechat
 ### Docker
 
 ```bash
-docker rmi ghcr.io/geekjourneyx/md2wechat:latest
+docker rmi ghcr.io/hansonyyds/md2wechat:latest
 ```
 
 ---

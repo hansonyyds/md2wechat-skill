@@ -108,4 +108,4 @@ help:
 	@echo "  make sync        - 同步 Skill 目录到插件目录"
 	@echo ""
 	@echo "用户快速安装:"
-	@echo "  go install github.com/geekjourneyx/md2wechat-skill/cmd/md2wechat@latest"
+	@echo "  go install github.com/hansonyyds/md2wechat-skill/cmd/md2wechat@latest"

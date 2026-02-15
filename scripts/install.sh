@@ -1,7 +1,7 @@
 #!/bin/bash
 # md2wechat 自动安装脚本
 # 适用于：macOS / Linux
-# 使用方法：curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install.sh | bash
+# 使用方法：curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install.sh | bash
 
 set -e
 
@@ -43,7 +43,7 @@ mkdir -p "$INSTALL_DIR"
 
 # 下载
 echo "正在下载..."
-DOWNLOAD_URL="https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/$BINARY"
+DOWNLOAD_URL="https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/$BINARY"
 echo "下载地址: $DOWNLOAD_URL"
 
 if command -v curl >/dev/null 2>&1; then

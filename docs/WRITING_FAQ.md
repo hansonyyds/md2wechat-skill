@@ -382,7 +382,7 @@ md2wechat convert article.md --mode ai --theme autumn-warm --preview
 
 - **教程**: [writers/README.md](../writers/README.md)
 - **风格示例**: [writers/dan-koe.yaml](../writers/dan-koe.yaml)
-- **问题反馈**: [GitHub Issues](https://github.com/geekjourneyx/md2wechat-skill/issues)
+- **问题反馈**: [GitHub Issues](https://github.com/hansonyyds/md2wechat-skill/issues)
 
 ---
 

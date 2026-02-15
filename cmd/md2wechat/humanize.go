@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/humanizer"
+	"github.com/hansonyyds/md2wechat-skill/internal/humanizer"
 	"github.com/spf13/cobra"
 )
 

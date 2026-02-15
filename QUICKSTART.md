@@ -13,8 +13,8 @@
 在 Claude Code 中运行：
 
 ```bash
-/plugin marketplace add geekjourneyx/md2wechat-skill
-/plugin install md2wechat@geekjourneyx-md2wechat-skill
+/plugin marketplace add hansonyyds/md2wechat-skill
+/plugin install md2wechat@hansonyyds-md2wechat-skill
 ```
 
 ### 第二步：开始使用
@@ -43,10 +43,10 @@
 
 | 你的系统 | 下载链接 | 安装位置 |
 |----------|----------|----------|
-| Windows 10/11 | [下载 .exe](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-windows-amd64.exe) | 任意文件夹或 `C:\Windows\System32\` |
-| Mac (Intel芯片) | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
-| Mac (M1/M2芯片) | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64) | `/usr/local/bin/` 或 `~/.local/bin/` |
-| Linux | [下载](https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| Windows 10/11 | [下载 .exe](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-windows-amd64.exe) | 任意文件夹或 `C:\Windows\System32\` |
+| Mac (Intel芯片) | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| Mac (M1/M2芯片) | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-darwin-arm64) | `/usr/local/bin/` 或 `~/.local/bin/` |
+| Linux | [下载](https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64) | `/usr/local/bin/` 或 `~/.local/bin/` |
 
 ---
 
@@ -66,14 +66,14 @@
 
 ```bash
 # 复制这条命令，粘贴到终端，回车
-curl -fsSL https://raw.githubusercontent.com/geekjourneyx/md2wechat-skill/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/hansonyyds/md2wechat-skill/main/scripts/install.sh | bash
 ```
 
 **方法二：手动安装**
 
 ```bash
 # 1. 下载
-curl -Lo md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
+curl -Lo md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
 
 # 2. 添加执行权限
 chmod +x md2wechat
@@ -92,7 +92,7 @@ md2wechat --help
 mkdir -p ~/.local/bin
 
 # 2. 下载到用户目录
-curl -Lo ~/.local/bin/md2wechat https://github.com/geekjourneyx/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
+curl -Lo ~/.local/bin/md2wechat https://github.com/hansonyyds/md2wechat-skill/releases/latest/download/md2wechat-linux-amd64
 
 # 3. 添加执行权限
 chmod +x ~/.local/bin/md2wechat

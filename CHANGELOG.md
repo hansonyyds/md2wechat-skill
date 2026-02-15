@@ -433,8 +433,8 @@ No migration required. The write command is a new feature and doesn't affect exi
 ### Installation
 ```bash
 # Claude Code users (simplest)
-/plugin marketplace add geekjourneyx/md2wechat-skill
-/plugin install md2wechat@geekjourneyx-md2wechat-skill
+/plugin marketplace add hansonyyds/md2wechat-skill
+/plugin install md2wechat@hansonyyds-md2wechat-skill
 ```
 
 ---
@@ -561,6 +561,6 @@ cp -r skills/md2wechat ~/.claude/skills/
 
 ## Links
 
-- [GitHub Repository](https://github.com/geekjourneyx/md2wechat-skill)
+- [GitHub Repository](https://github.com/hansonyyds/md2wechat-skill)
 - [Documentation](README.md)
-- [Issues](https://github.com/geekjourneyx/md2wechat-skill/issues)
+- [Issues](https://github.com/hansonyyds/md2wechat-skill/issues)

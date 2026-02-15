@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
-	"github.com/geekjourneyx/md2wechat-skill/internal/wechat"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/wechat"
 	"go.uber.org/zap"
 )
 

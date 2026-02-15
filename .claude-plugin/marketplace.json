@@ -13,8 +13,8 @@
       "author": {
         "name": "geekjourney"
       },
-      "homepage": "https://github.com/geekjourneyx/md2wechat-skill",
-      "repository": "https://github.com/geekjourneyx/md2wechat-skill",
+      "homepage": "https://github.com/hansonyyds/md2wechat-skill",
+      "repository": "https://github.com/hansonyyds/md2wechat-skill",
       "license": "MIT",
       "keywords": ["wechat", "markdown", "blog", "publishing", "html", "converter", "official account", "公众号", "排版"],
       "strict": false

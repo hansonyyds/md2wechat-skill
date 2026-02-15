@@ -68,4 +68,4 @@ func hello() {
 
 感谢使用 md2wechat！
 
-如有问题，请访问 [GitHub](https://github.com/geekjourneyx/md2wechat-skill)。
+如有问题，请访问 [GitHub](https://github.com/hansonyyds/md2wechat-skill)。

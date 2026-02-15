@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/draft"
+	"github.com/hansonyyds/md2wechat-skill/internal/draft"
 	"github.com/spf13/cobra"
 )
 

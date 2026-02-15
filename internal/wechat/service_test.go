@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/geekjourneyx/md2wechat-skill/internal/config"
+	"github.com/hansonyyds/md2wechat-skill/internal/config"
 	"go.uber.org/zap"
 )
 
