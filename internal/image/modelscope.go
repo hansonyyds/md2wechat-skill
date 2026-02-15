@@ -83,32 +83,82 @@ func (p *ModelScopeProvider) Generate(ctx context.Context, prompt string) (*Gene
 	}, nil
 }
 
-// parseSize 解析尺寸字符串 (如 "1024x1024") 为宽度和高度
-func parseSize(size string) (width, height int, err error) {
+// parseAndValidateSize 解析并验证尺寸字符串 (如 "1024x1024")
+// ModelScope 要求宽度和高度必须在 [64, 2048] 范围内
+func parseAndValidateSize(size string) (string, error) {
 	parts := strings.Split(size, "x")
 	if len(parts) != 2 {
-		return 0, 0, fmt.Errorf("invalid size format: %s, expected WIDTHxHEIGHT", size)
+		return "", fmt.Errorf("invalid size format: %s, expected WIDTHxHEIGHT", size)
 	}
-	width, err = strconv.Atoi(strings.TrimSpace(parts[0]))
+
+	width, err := strconv.Atoi(strings.TrimSpace(parts[0]))
 	if err != nil {
-		return 0, 0, fmt.Errorf("invalid width: %s", parts[0])
+		return "", fmt.Errorf("invalid width: %s", parts[0])
 	}
-	height, err = strconv.Atoi(strings.TrimSpace(parts[1]))
+
+	height, err := strconv.Atoi(strings.TrimSpace(parts[1]))
 	if err != nil {
-		return 0, 0, fmt.Errorf("invalid height: %s", parts[1])
+		return "", fmt.Errorf("invalid height: %s", parts[1])
 	}
-	return width, height, nil
+
+	// ModelScope 尺寸限制: [64, 2048]
+	const minSize = 64
+	const maxSize = 2048
+
+	if width < minSize || width > maxSize {
+		return "", &SizeValidationError{
+			Size:         size,
+			Width:        width,
+			Height:       height,
+			MinAllowed:   minSize,
+			MaxAllowed:   maxSize,
+			InvalidField: "width",
+		}
+	}
+
+	if height < minSize || height > maxSize {
+		return "", &SizeValidationError{
+			Size:         size,
+			Width:        width,
+			Height:       height,
+			MinAllowed:   minSize,
+			MaxAllowed:   maxSize,
+			InvalidField: "height",
+		}
+	}
+
+	return size, nil
+}
+
+// SizeValidationError 尺寸验证错误
+type SizeValidationError struct {
+	Size         string
+	Width        int
+	Height       int
+	MinAllowed   int
+	MaxAllowed   int
+	InvalidField string
+}
+
+func (e *SizeValidationError) Error() string {
+	if e.InvalidField == "width" {
+		return fmt.Sprintf("尺寸宽度 %d 超出范围，ModelScope 要求宽度在 [%d, %d] 之间。建议使用: 1024x1024, 1920x1080, 1440x1920 等尺寸",
+			e.Width, e.MinAllowed, e.MaxAllowed)
+	}
+	return fmt.Sprintf("尺寸高度 %d 超出范围，ModelScope 要求高度在 [%d, %d] 之间。建议使用: 1024x1024, 1920x1080, 1440x1920 等尺寸",
+		e.Height, e.MinAllowed, e.MaxAllowed)
 }
 
 // createTask 创建图片生成任务，返回 task_id
 func (p *ModelScopeProvider) createTask(ctx context.Context, prompt string) (string, error) {
-	width, height, err := parseSize(p.size)
+	// 验证尺寸是否在 ModelScope 允许的范围内
+	validatedSize, err := parseAndValidateSize(p.size)
 	if err != nil {
 		return "", &GenerateError{
 			Provider: p.Name(),
 			Code:     "invalid_size",
-			Message:  fmt.Sprintf("图片尺寸格式错误: %v", err),
-			Hint:     "请使用 WIDTHxHEIGHT 格式，如 1024x1024",
+			Message:  err.Error(),
+			Hint:     "ModelScope 图片尺寸必须在 [64x64, 2048x2048] 范围内。推荐尺寸: 1024x1024, 1920x1080, 1440x1920, 1080x1920",
 			Original: err,
 		}
 	}
@@ -116,9 +166,7 @@ func (p *ModelScopeProvider) createTask(ctx context.Context, prompt string) (str
 	reqBody := map[string]any{
 		"model":  p.model,
 		"prompt": prompt,
-		"n":      1,
-		"width":  width,
-		"height": height,
+		"size":   validatedSize,
 	}
 
 	jsonData, err := json.Marshal(reqBody)
