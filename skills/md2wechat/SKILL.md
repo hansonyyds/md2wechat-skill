@@ -337,14 +337,22 @@ bash skills/md2wechat/scripts/run.sh download_and_upload "https://example.com/im
 #### AI Generated Image (via CLI)
 
 ```bash
-# Generate with default size (2048x2048 square)
+# Generate with default size (1024x1024 square)
 bash skills/md2wechat/scripts/run.sh generate_image "A cute cat sitting on a windowsill"
 
-# Generate with 16:9 ratio for WeChat cover (recommended)
-bash skills/md2wechat/scripts/run.sh generate_image --size 2560x1440 "prompt"
+# Generate with 16:9 ratio for WeChat cover
+bash skills/md2wechat/scripts/run.sh generate_image --size 1920x1080 "prompt"
 ```
 
-**WeChat Cover Images**: For article covers, use 16:9 horizontal ratio (2560x1440 recommended) as it displays better in WeChat's feed and article list. Square images (2048x2048) are cropped in preview.
+**WeChat Cover Images**: For article covers, use 16:9 horizontal ratio (1920x1080) for better display in WeChat's feed and article list.
+
+**Size Limits by Provider**:
+| Provider | Size Range | Notes |
+|----------|------------|-------|
+| ModelScope | [64, 2048] | Default for most users |
+| OpenAI | [256, 1024] | dall-e-2 only |
+| OpenRouter | 1K/2K/4K | Depends on model |
+| Gemini | [64, 2048] | Various aspect ratios |
 
 **Note**: AI image generation requires `IMAGE_API_KEY` environment variable.
 
@@ -714,7 +722,10 @@ bash skills/md2wechat/scripts/run.sh download_and_upload https://example.com/ima
 bash skills/md2wechat/scripts/run.sh generate_image "A cute cat sitting on a windowsill"
 
 # Generate with 16:9 ratio for WeChat cover (recommended)
-bash skills/md2wechat/scripts/run.sh generate_image --size 2560x1440 "prompt"
+bash skills/md2wechat/scripts/run.sh generate_image --size 1920x1080 "prompt"
+
+# Generate with 9:16 ratio for vertical images
+bash skills/md2wechat/scripts/run.sh generate_image --size 1080x1920 "prompt"
 
 # Initialize config
 bash skills/md2wechat/scripts/run.sh config init

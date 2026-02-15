@@ -173,17 +173,32 @@ bash scripts/run.sh download_and_upload "https://example.com/image.jpg"
 ### AI 生成图片
 
 ```bash
-# 默认尺寸 (2048x2048 方形)
+# 默认尺寸 (1024x1024 方形)
 bash scripts/run.sh generate_image "A futuristic city skyline at sunset"
 
 # 16:9 比例 (推荐用于公众号封面)
-bash scripts/run.sh generate_image --size 2560x1440 "prompt"
+bash scripts/run.sh generate_image --size 1920x1080 "prompt"
+
+# 9:16 竖版
+bash scripts/run.sh generate_image --size 1080x1920 "prompt"
 ```
 
 **公众号封面图建议**：
-- 使用 16:9 横向比例（2560x1440）作为文章封面
+- 使用 16:9 横向比例（1920x1080）作为文章封面
 - 在微信 feed 流和文章列表中显示效果更好
-- 方形图片（2048x2048）在预览时会被裁剪
+- 方形图片（1024x1024）在预览时会被裁剪
+
+**不同服务提供商的尺寸限制**：
+
+| 服务商 | 尺寸范围 | 默认尺寸 | 备注 |
+|--------|----------|----------|------|
+| **ModelScope** | [64, 2048] | 1024x1024 | 推荐用户使用 |
+| **OpenAI** | [256, 1024] | 1024x1024 | 仅 dall-e-2 |
+| **OpenRouter** | 1K/2K/4K | 2K | 根据模型变化 |
+| **Gemini** | [64, 2048] | 1024x1024 | 支持多种比例 |
+| **TuZi** | ≥ 3.7M 像素 | 2048x2048 | 最小像素要求 |
+
+> **注意**：使用 ModelScope 时，请确保尺寸在 [64, 2048] 范围内。超出范围会返回错误。
 
 **响应**：
 ```json

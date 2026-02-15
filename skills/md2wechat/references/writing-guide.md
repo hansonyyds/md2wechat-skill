@@ -242,14 +242,27 @@ Claude 会自动调用 `write` 命令并处理结果。
 
 | 用途 | 推荐尺寸 | 说明 |
 |------|----------|------|
-| **文章封面** | 2560x1440 (16:9) | 横向比例，在微信 feed 流和文章列表显示效果更好 |
-| **默认生成** | 2048x2048 (1:1) | 方形图片，在预览时会被裁剪 |
+| **文章封面** | 1920x1080 (16:9) | 横向比例，在微信 feed 流和文章列表显示效果更好 |
+| **默认生成** | 1024x1024 (1:1) | 方形图片，在预览时会被裁剪 |
+| **竖版图片** | 1080x1920 (9:16) | 适合手机浏览 |
+
+**不同服务商尺寸限制**：
+- ModelScope: [64, 2048]
+- OpenAI: [256, 1024]
+- OpenRouter: 1K/2K/4K
+- Gemini: [64, 2048]
 
 ### 生成封面图
 
 ```bash
 # 生成 16:9 封面图（推荐）
-bash skills/md2wechat/scripts/run.sh generate_image --size 2560x1440 "封面提示词"
+bash skills/md2wechat/scripts/run.sh generate_image --size 1920x1080 "封面提示词"
+
+# 生成 9:16 竖版图
+bash skills/md2wechat/scripts/run.sh generate_image --size 1080x1920 "封面提示词"
+
+# 生成 1:1 方形图（默认）
+bash skills/md2wechat/scripts/run.sh generate_image "封面提示词"
 ```
 
 ---
