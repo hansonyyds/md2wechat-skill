@@ -57,3 +57,6 @@ build/
 coverage.txt
 coverage.html
 /skills/md2wechat/scripts/md2wechat
+
+# Git worktrees
+.worktrees/
