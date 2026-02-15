@@ -32,11 +32,18 @@ type Service struct {
 
 // NewService 创建微信服务
 func NewService(cfg *config.Config, log *zap.Logger) *Service {
-	return &Service{
+	wc := wechat.NewWechat()
+
+	// 设置自定义 HTTP 客户端（支持代理）
+	svc := &Service{
 		cfg: cfg,
 		log: log,
-		wc:  wechat.NewWechat(),
+		wc:  wc,
 	}
+
+	wc.SetHTTPClient(svc.createHTTPClient())
+
+	return svc
 }
 
 // createHTTPClient 创建 HTTP 客户端，根据配置决定是否使用代理
