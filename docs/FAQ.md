@@ -530,6 +530,43 @@ md2wechat convert --help
 
 ---
 
+### Q21: 如何配置微信 API 代理？
+
+**原因**: 访问微信 API 需要通过代理服务器
+
+**解决方案 A**: 使用环境变量
+
+```bash
+export WECHAT_PROXY="http://proxy.example.com:8080"
+```
+
+**解决方案 B**: 使用配置文件
+
+```yaml
+# md2wechat.yaml
+api:
+  wechat_proxy: "http://user:pass@proxy.example.com:8080"
+```
+
+**支持的格式**:
+- HTTP: `http://host:port`
+- 带认证: `http://user:pass@host:port`
+- HTTPS: `https://host:port`
+
+**优先级**: 环境变量 > 配置文件 > 直连
+
+**验证配置**:
+
+```bash
+# 查看当前配置
+md2wechat config show
+
+# 测试代理连接
+md2wechat upload_image test.jpg
+```
+
+---
+
 ## 仍然无法解决？
 
 请提供以下信息：
