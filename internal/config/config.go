@@ -357,6 +357,9 @@ func loadFromEnv(cfg *Config) {
 	if v := os.Getenv("HTTP_TIMEOUT"); v != "" {
 		cfg.HTTPTimeout = getEnvInt("HTTP_TIMEOUT", cfg.HTTPTimeout)
 	}
+	if v := os.Getenv("WECHAT_PROXY"); v != "" {
+		cfg.WechatProxy = v
+	}
 }
 
 // Validate 验证配置
