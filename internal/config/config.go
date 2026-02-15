@@ -65,6 +65,7 @@ type configFile struct {
 		DefaultTheme      string `json:"default_theme" yaml:"default_theme"`
 		BackgroundType    string `json:"background_type" yaml:"background_type"`
 		HTTPTimeout       int    `json:"http_timeout" yaml:"http_timeout"`
+		WechatProxy       string `json:"wechat_proxy" yaml:"wechat_proxy"`
 	} `json:"api" yaml:"api"`
 
 	Image struct {
@@ -231,6 +232,9 @@ func loadFromYAML(cfg *Config, data []byte) error {
 	if cf.API.HTTPTimeout > 0 {
 		cfg.HTTPTimeout = cf.API.HTTPTimeout
 	}
+	if cf.API.WechatProxy != "" {
+		cfg.WechatProxy = cf.API.WechatProxy
+	}
 	cfg.CompressImages = cf.Image.Compress
 	if cf.Image.MaxWidth > 0 {
 		cfg.MaxImageWidth = cf.Image.MaxWidth
@@ -288,6 +292,9 @@ func loadFromJSON(cfg *Config, data []byte) error {
 	}
 	if cf.API.HTTPTimeout > 0 {
 		cfg.HTTPTimeout = cf.API.HTTPTimeout
+	}
+	if cf.API.WechatProxy != "" {
+		cfg.WechatProxy = cf.API.WechatProxy
 	}
 	cfg.CompressImages = cf.Image.Compress
 	if cf.Image.MaxWidth > 0 {
@@ -444,6 +451,7 @@ func (c *Config) ToMap(maskSecret bool) map[string]any {
 		"max_image_width":      c.MaxImageWidth,
 		"max_image_size_mb":    c.MaxImageSize / 1024 / 1024,
 		"http_timeout":         c.HTTPTimeout,
+		"wechat_proxy":         c.WechatProxy,
 		"config_file":          c.configFile,
 	}
 	return result
@@ -467,6 +475,7 @@ func SaveConfig(path string, cfg *Config) error {
 	cf.API.DefaultTheme = cfg.DefaultTheme
 	cf.API.BackgroundType = cfg.DefaultBackgroundType
 	cf.API.HTTPTimeout = cfg.HTTPTimeout
+	cf.API.WechatProxy = cfg.WechatProxy
 	cf.Image.Compress = cfg.CompressImages
 	cf.Image.MaxWidth = cfg.MaxImageWidth
 	cf.Image.MaxSize = int(cfg.MaxImageSize / 1024 / 1024)
