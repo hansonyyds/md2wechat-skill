@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.11.1] - 2026-02-15
+
+### Fixed
+- **ModelScope Image API**: 修复图片生成尺寸参数错误
+  - 使用 `size` 字符串参数代替分离的 `width`/`height` 参数
+  - 添加尺寸验证，确保在 ModelScope 支持范围内 [64, 2048]
+  - 移除无用的 `n` 参数
+  - 改进超出范围时的错误提示信息
+
+---
+
 ## [1.11.0] - 2026-02-15
 
 ### Added
