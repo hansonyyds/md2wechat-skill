@@ -5,19 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.11.0] - 2026-02-15
 
 ### Added
 - **HTTP Proxy**: 支持微信 API 代理配置
   - 环境变量: `WECHAT_PROXY`
   - 配置文件: `api.wechat_proxy`
   - 支持 HTTP/HTTPS 代理和认证
+  - 优先级: 环境变量 > 配置文件 > 直连
+  - 无效 URL 自动降级为直连
+
+### Changed
+- **Config**: 新增 `WechatProxy` 配置字段
+- **WeChat Service**: 使用 SDK 的 `SetHTTPClient()` 方法配置代理
+- **WeChat Service**: 新增 `createHTTPClient()` 方法创建支持代理的 HTTP 客户端
 
 ### Technical Details
+- **New Files**:
+  - `internal/wechat/service_test.go` - 代理功能单元测试
 - **Modified Files**:
   - `internal/config/config.go` - 新增 WechatProxy 字段及加载逻辑
   - `internal/wechat/service.go` - 代理支持的 HTTP 客户端创建
-  - `docs/CONFIG.md`, `docs/FAQ.md`, `docs/OPENCLAW.md` - 文档更新
+
+### Migration Guide
+No migration required. `WechatProxy` 是可选配置，默认行为（直连）保持不变。
+
+---
+
+## [1.10.0] - 2025-02-10
 
 ---
 

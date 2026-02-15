@@ -150,6 +150,22 @@ wechat:
   secret: "your_secret_here"      # ← 粘贴你的 Secret
 ```
 
+### 2.4 （可选）配置代理
+
+如果访问微信 API 需要通过代理服务器，可以在配置文件中添加：
+
+```yaml
+api:
+  wechat_proxy: "http://proxy.example.com:8080"  # 你的代理地址
+```
+
+或使用环境变量：
+```bash
+export WECHAT_PROXY="http://proxy.example.com:8080"
+```
+
+> 💡 **提示**：代理仅在调用微信 API 时使用。详细说明见 [FAQ.md](docs/FAQ.md#q21-如何配置微信-api-代理)
+
 保存文件，完成！
 
 ---

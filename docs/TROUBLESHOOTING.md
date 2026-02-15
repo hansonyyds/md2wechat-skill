@@ -260,6 +260,52 @@ md2wechat convert 文章.md --draft
 
 ---
 
+### ❓ 代理配置失败
+
+**现象**：配置代理后仍无法访问微信 API，或提示 "invalid ip"
+
+**原因 1：代理 URL 格式错误**
+
+```bash
+# 检查日志是否有以下错误
+⚠️  invalid wechat proxy url, using direct connection
+```
+
+**解决方法**：
+- 密码中的 `%` 需要转义为 `%25`
+- 例如：`http://user:pass%word@host:port` → `http://user:pass%25word@host:port`
+
+**原因 2：代理服务器 IP 未在微信白名单**
+
+```
+errcode=40164, errmsg=invalid ip xxx.xxx.xxx.xxx, not in whitelist
+```
+
+**解决方法**：
+1. 获取代理服务器的公网 IP：
+   ```bash
+   curl ifconfig.me
+   ```
+
+2. 添加到微信白名单：
+   - 访问 [微信开发者平台](https://developers.weixin.qq.com/platform)
+   - 选择公众号 → 开发接口管理 → IP白名单
+   - 添加代理服务器 IP
+
+**原因 3：代理服务器无法访问**
+
+```bash
+# 测试代理连通性
+curl -x http://proxy.example.com:8080 https://api.weixin.qq.com
+```
+
+**解决方法**：
+- 检查代理服务器是否正常运行
+- 检查防火墙是否阻止代理连接
+- 尝试使用不同的代理协议（http/https）
+
+---
+
 ## 需要更多帮助？
 
 ### 收集诊断信息
