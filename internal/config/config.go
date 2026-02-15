@@ -39,6 +39,9 @@ type Config struct {
 	// 超时配置
 	HTTPTimeout int `json:"http_timeout" yaml:"http_timeout" env:"HTTP_TIMEOUT"`
 
+	// 微信 API 代理配置
+	WechatProxy string `json:"wechat_proxy" yaml:"wechat_proxy" env:"WECHAT_PROXY"`
+
 	// 配置文件路径（用于追踪）
 	configFile string
 }
