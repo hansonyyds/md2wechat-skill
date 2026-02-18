@@ -13,33 +13,6 @@
 
 ---
 
-> ### ⚠️ 重要提示：API 模式需要 md2wechat.cn API 服务
-> **本工具使用 md2wechat.cn API 服务，使用 API 模式前需要先获取 API Key**
->
-> - 📖 **API 文档**：https://www.md2wechat.cn/api-docs
-> - 📧 **联系获取**：通过 [官网](https://www.md2wechat.cn/api-docs) 联系获取 API Key
-> - 💡 **AI 模式**：不需要 API Key，直接使用 Claude 即可
-
----
-
-> ### 🎉 API 服务重磅升级 - 内测招募
-> **YouMind 内置主题，全新分类系统，重塑内容创作体验**
->
-> md2wechat API 服务即将迎来重大升级，带来 **YouMind 内置主题库**和**全新主题分类**：
-> - 🎨 **丰富主题库**：精选 YouMind 内置主题，覆盖科技、生活、商业等多元场景
-> - 📂 **全新分类**：智能分类系统，快速定位最匹配的主题风格
-> - ⚡ **一键应用**：API 模式下直接调用主题，创作更高效
->
-> 📚 **主题预览**: [https://md2wechat.app/theme-gallery](https://md2wechat.app/theme-gallery)
->
-> 🔥 **目前处于内测阶段，诚邀自动化 Agent 创作者参与测试！**
->
-> - 🎯 **适合对象**：Agent 开发者、自动化内容创作者、API 集成者
-> - 🎁 **内测福利**：优先体验新功能，影响产品方向
-> - 📩 **参与方式**：扫描底部公众号二维码联系，备注「API内测」
-
----
-
 [快速开始](#-5分钟快速上手) • [Claude Code](#-claude-code-集成) • [OpenClaw](#-openclaw-支持) • [功能介绍](#-核心功能) • [使用说明](#-使用方法) • [常见问题](#-常见问题)
 
 ---
@@ -51,6 +24,11 @@
 ```bash
 /plugin marketplace add hansonyyds/md2wechat-skill
 /plugin install md2wechat@hansonyyds-md2wechat-skill
+```
+
+快速安装（推荐）
+```bash
+npx skills add https://github.com/hansonyyds/md2wechat-skill --skill md2wechat
 ```
 
 然后直接对话：**"请用秋日暖光主题将 article.md 转换为微信公众号格式"**
